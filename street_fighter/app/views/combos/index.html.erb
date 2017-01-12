@@ -1,0 +1,17 @@
+<h1>Combos</h1>
+
+
+<ul>
+<% @combos.each do |combo| %>
+  <p><%= combo.character %></p>
+  <p><%= combo.damage %></p>
+  <p><%= combo.difficulty %></p>
+  <p><%= combo.command %></p>
+  <p><%= link_to "Click to View Combo", combo_path(combo) %></p>
+  <% end %>
+
+</ul>
+
+<%= link_to "Create Combo", new_combo_path%>
+
+
