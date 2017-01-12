@@ -18,15 +18,17 @@ class CombosController < ApplicationController
   end
 
   def create
-    @combo = Combo.new(combo_params)
-
-    if @combo.save
-      flash[:success] = "Combo succesfully created"
-      redirect_to combos_path
-    else
-      render :new
-    end
+    @combo = current_user.combos.create(combo_params)
+    redirect_to combos_path
   end
+
+#    if @combo.save
+#      flash[:success] = "Combo succesfully created"
+#      redirect_to combos_path
+#    else
+#      render :new
+#    end
+#  end
 
   def edit
 
@@ -34,7 +36,7 @@ class CombosController < ApplicationController
 
   def update
     if @combo.update_attributes(combo_params)
-      redirect_to combo_path
+      redirect_to @combo
     else
       render :edit
     end

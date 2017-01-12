@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 
   resources :combos
 
+  resources :users do
+    resources :combos, shallow: true do
+    end
+  end
+
 
   get '/login', to: 'sessions#new'
   get '/logout', to: 'sessions#destroy'
