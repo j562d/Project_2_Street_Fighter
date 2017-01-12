@@ -1,6 +1,11 @@
-<h1>show</h1>
+<h1>SHOW</h1>
 
-
+<div class="container">
+<div class="col-lg-10">
+<div class="panel panel-default">
+<div class="panel-heading">
+</div>
+    <div class="panel-body">
 <ul>
   <li><p><%= @combo.character %></p></li>
   <li><p><%= @combo.damage %></p></li>
@@ -14,4 +19,11 @@
 
 <br>
 
+<%= link_to "DELETE this Combo!", combo_path, method: :delete, data: { confirm: "Are you sure you want to delete this Combo?"} %>
+
 <p><%= link_to "Go back to all Combos", combos_path %></p>
+
+    </div>
+</div>
+</div>
+</div>

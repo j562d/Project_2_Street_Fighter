@@ -34,7 +34,7 @@ class CombosController < ApplicationController
 
   def update
     if @combo.update_attributes(combo_params)
-      redirect_to combos_path
+      redirect_to combo_path
     else
       render :edit
     end
