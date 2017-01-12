@@ -1,26 +1,30 @@
 <h1>Combos</h1>
 
 <div class="container">
-<div class="col-lg-4">
 <div class="panel panel-default">
 <div class="panel-heading">
 </div>
     <div class="panel-body">
     <ul>
     <% @combos.each do |combo| %>
+    <%= div_for combo, :class => "col-sm-4" do %>
       <p><%= combo.character %></p>
       <p><%= combo.damage %></p>
       <p><%= combo.difficulty %></p>
       <p><%= combo.command %></p>
       <p><%= link_to "Click to View Combo", combo_path(combo) %></p>
+      <hr>
       <% end %>
+    <% end %>
     </ul>
 
-    <%= link_to "Create Combo", new_combo_path%>
+
     </div>
+    <%= link_to "Create Combo", new_combo_path%>
 </div>
 </div>
-</div>
+
+
 
 
 
