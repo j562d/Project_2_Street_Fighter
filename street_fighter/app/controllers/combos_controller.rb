@@ -5,11 +5,15 @@ class CombosController < ApplicationController
   before_action :authorize, except: [:index, :show]
 
   def index
+    if params[:character]
+      @combos = Combo.where(:character => params[:character])
+    else
     @combos = Combo.all
+    end
   end
 
   def show
-    @combo
+  #  @combo
   end
 
 
@@ -45,6 +49,9 @@ class CombosController < ApplicationController
   def destroy
     @combo.destroy
     redirect_to combos_path
+#   @combo = Combo.find(params[:id])
+#   @combo.destroy if @combo.user == current_user
+#   redirect_to combos_path
   end
 
 
