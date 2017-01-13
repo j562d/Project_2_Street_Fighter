@@ -1,19 +1,38 @@
 class CombosController < ApplicationController
 
-  before_action :set_combo, only: [:show, :edit, :update, :destroy]
+  before_action :set_combo, only: [:show, :edit, :update, :destroy, :favorite]
 
   before_action :authorize, except: [:index, :show]
+
+  def favorite
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorite_combos << @combo unless current_user.favorite_combos.exists?(@combo)
+      redirect_to combo_path
+      flash[:notice] = "You have FAVORITED"
+
+    elsif type =="unfavorite"
+      current_user.favorite_combos.delete(@combo)
+      redirect_to combo_path
+      flash[:notice] = "You have unfavoirted"
+
+    else
+      redirect_to :back, notice: 'Nothing happened.'
+    end
+  end
 
   def index
     if params[:character]
       @combos = Combo.where(:character => params[:character])
+    elsif params[:user_id]
+      @combos = Combo.where(:user_id => params[:user_id])
     else
     @combos = Combo.all
     end
   end
 
   def show
-  #  @combo
+  @combos = current_user.combos
   end
 
 

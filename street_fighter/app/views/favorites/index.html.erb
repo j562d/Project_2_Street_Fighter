@@ -1,0 +1,27 @@
+<h1>Favorites</h1>
+
+<div class="container">
+<div class="panel panel-default">
+<div class="panel-heading">
+</div>
+    <div class="panel-body main">
+    <ul>
+    <% @favorites.each do |favorite| %>
+    <%= div_for favorite, :class => "col-sm-4" do %>
+      <p><%= favorite.combo.character %></p>
+      <p><%= favorite.combo.damage %></p>
+      <p><%= favorite.combo.difficulty %></p>
+      <p><%= favorite.combo.character %></p>
+        <%#= image_tag(favorite.combo.image.url) %>
+        <p><%= link_to "Click to View Combo", combo_path(favorite.combo) %></p>
+        <hr>
+        <div class="posted">
+            Posted by <%= favorite.combo.user.name %>
+        </div>
+        <hr>
+      <% end %>
+    <% end %>
+</ul>
+</div>
+</div>
+</div>

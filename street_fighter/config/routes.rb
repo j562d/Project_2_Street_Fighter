@@ -13,6 +13,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :combos do
+    put :favorite, on: :member
+  end
+
+  get "favorites/" => "favorites#index"
 
   get '/login', to: 'sessions#new'
   get '/logout', to: 'sessions#destroy'

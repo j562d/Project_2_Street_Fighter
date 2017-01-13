@@ -1,5 +1,6 @@
 <h1>SHOW</h1>
 
+
 <div class="container">
 <div class="col-lg-10">
 <div class="panel panel-default">
@@ -30,8 +31,19 @@
 
 <p><%= link_to "Go back to all Combos", combos_path %></p>
 
+
     </div>
 </div>
 </div>
 </div>
 
+
+
+<% if current_user %>
+<button type="button" class="btn btn-info">
+  <%= link_to "favorite",   favorite_combo_path(@combo, type: "favorite"), method: :put %>
+</button>
+<button type="button" class="btn btn-info">
+  <%= link_to "unfavorite", favorite_combo_path(@combo, type: "unfavorite"), method: :put %>
+</button>
+<% end %>

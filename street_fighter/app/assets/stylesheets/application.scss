@@ -41,10 +41,13 @@
 
 }
 
-.main , .single{
+.main , .single, {
   font-family: 'Anton', sans-serif;
   font-size: 20px;
   color: white;
-  background-image: url('http://portland.nationalpti.edu/wp-content/uploads/2014/06/wood-texture-wallpapers-wallpaper-texture-background-patterns-500.jpg');
+  background-color: rgba(0,0,0,.4)
 }
 
+a:visited, {
+  color: white;
+}

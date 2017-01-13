@@ -17,8 +17,10 @@
 <div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="/combos">Home</a></li>
-      <li><%= link_to "My Combos", combos_path(current_user.combos) %> </li>
-      <li><a href="#">My Favorites</a></li>
+      <% if current_user %>
+      <li><%= link_to "My Combos", combos_path(:user_id => current_user) %></li>
+      <li><%= link_to "My Favorites", favorites_path(:user_id => current_user)  %></li>
+      <% end %>
     </ul>
     <div class="dropdown">
       <li class="dropdown">
@@ -45,7 +47,9 @@
 </div>
 </nav>
 
-
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 
 
 
