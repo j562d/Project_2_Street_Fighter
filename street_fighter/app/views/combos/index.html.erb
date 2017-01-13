@@ -4,7 +4,7 @@
 <div class="panel panel-default">
 <div class="panel-heading">
 </div>
-    <div class="panel-body">
+    <div class="panel-body main">
     <ul>
     <% @combos.each do |combo| %>
     <%= div_for combo, :class => "col-sm-4" do %>
@@ -14,8 +14,13 @@
       <p><%= combo.command %></p>
       <p><%= link_to "Click to View Combo", combo_path(combo) %></p>
       <hr>
+      <div class="posted">
+          Posted by <%= combo.user.name %>
+      </div>
+      <hr>
       <% end %>
     <% end %>
+
     </ul>
 
 

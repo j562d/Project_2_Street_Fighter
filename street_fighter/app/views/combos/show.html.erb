@@ -5,7 +5,7 @@
 <div class="panel panel-default">
 <div class="panel-heading">
 </div>
-    <div class="panel-body">
+    <div class="panel-body single">
 <ul>
   <li><p><%= @combo.character %></p></li>
   <li><p><%= @combo.damage %></p></li>
@@ -14,6 +14,10 @@
   <%= image_tag(@combo.image.url) %>
 
 </ul>
+
+<div class="posted">
+  Posted by <%= @combo.user.name %>
+</div>
 
 <% if current_user == @combo.user %>
 <p><%= link_to "Edit this Combo", edit_combo_path(@combo) %></p>

@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 </head>
 <body>
 
@@ -16,7 +17,7 @@
 <div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="/combos">Home</a></li>
-      <li><a href="#">My Combos</a></li>
+      <li><%= link_to "My Combos", combos_path(current_user.combos) %> </li>
       <li><a href="#">My Favorites</a></li>
     </ul>
     <div class="dropdown">
