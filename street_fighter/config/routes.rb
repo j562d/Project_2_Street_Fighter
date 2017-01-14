@@ -10,8 +10,10 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :combos, shallow: true do
+        resources :comments
+      end
     end
-  end
+
 
   resources :combos do
     put :favorite, on: :member

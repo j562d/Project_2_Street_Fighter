@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     @user = User.all
   end
 
+  def show
+    @user = User.find(params[:id])
+ #   @combo = Combo.new
+  end
+
   def new
     @user = User.new
   end

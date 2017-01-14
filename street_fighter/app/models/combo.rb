@@ -4,6 +4,8 @@ class Combo < ActiveRecord::Base
 
   belongs_to :user, :foreign_key => "user_id"
 
+  has_many :comments, dependent: :destroy
+
   has_many :favorites
   has_many :favorited_by, through: :favorites, source: :user
 

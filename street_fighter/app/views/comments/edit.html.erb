@@ -1,0 +1,10 @@
+<h1>edit</h1>
+
+<%= form_for [@combo, @comment] do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %><br>
+
+
+
+  <%= f.submit 'edit comment' %>
+<% end %>

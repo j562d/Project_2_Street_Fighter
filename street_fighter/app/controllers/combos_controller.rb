@@ -32,12 +32,15 @@ class CombosController < ApplicationController
   end
 
   def show
-  @combos = current_user.combos
+  @combo = Combo.find(params[:id])
+  @comment = Comment.new
+
   end
 
 
   def new
     @combo = Combo.new
+    @comment = Comment.new(combo_id: params[:combo_id])
   end
 
   def create
