@@ -2,7 +2,7 @@
 
 <%= form_for @combo, url: combos_path, html: { multipart: true } do |form| %>
   <%= form.label :character %>
-  <%= form.select :character , ['Ken', 'Ryu'] %> <br>
+  <%= form.select :character , ['Ken', 'Ryu', 'Zangief'] %> <br>
 
   <%= form.label :difficulty %>
   <%= form.select :difficulty , ['Beginner', 'Intermediate', 'Advanced'] %><br>

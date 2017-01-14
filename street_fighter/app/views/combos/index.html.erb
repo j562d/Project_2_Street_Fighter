@@ -8,7 +8,7 @@
     <ul>
     <% @combos.each do |combo| %>
     <%= div_for combo, :class => "col-sm-4" do %>
-      <p><%= combo.character %></p>
+      <p class="title"><%= combo.character %></p>
       <p><%= combo.damage %></p>
       <p><%= combo.difficulty %></p>
       <p><%= combo.command %></p>

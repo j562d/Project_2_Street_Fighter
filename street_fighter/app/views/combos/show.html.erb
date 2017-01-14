@@ -41,8 +41,8 @@
 <p><%= e.content %></p>
 <%= link_to "Edit this comment", edit_comment_path(e) %>
 <%= link_to 'Delete', e, method: :delete, data: {confirm: 'Are you sure????'} %>
-
 <% end %>
+
 
 <%= form_for [@combo, @comment] do |f| %>
   <%= f.label :content %>
