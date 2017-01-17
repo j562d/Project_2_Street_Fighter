@@ -7,6 +7,15 @@
 </div>
     <div class="panel-body single">
 <ul>
+  <% if  @combo.character == "Ryu" %>
+    <%= image_tag 'http://i.imgur.com/ycyvEaM.png', :class => "style_image" %>
+  <% elsif @combo.character == "Ken" %>
+    <%= image_tag 'http://i.imgur.com/mo7Bgq1.jpg', :class => "style_image" %>
+  <% elsif @combo.character == "Zangief" %>
+    <%= image_tag 'http://i.imgur.com/Kt1VDwa.png', :class => "style_image" %>
+  <% elsif @combo.character == "M. Bison" %>
+    <%= image_tag 'http://i.imgur.com/jRZ3BSx.png', :class => "style_image" %>
+  <% end %>
   <li><p><%= @combo.character %></p></li>
   <li><p><%= @combo.damage %></p></li>
   <li><p><%= @combo.difficulty %></p></li>
@@ -38,11 +47,17 @@
 
 <% @combo.comments.each do |e| %>
 
-<p><%= e.content %></p>
-<p><%= e.user.name %></p>
+<div class="card" style="width: 20rem;">
+   <div class="card-block">
+    <p class="card-text"><%= e.content %></p>
+<div class = "postedby">Posted by <%= e.user.name %></div>
+<% if current_user == e.user %>
 <%= link_to "Edit this comment", edit_comment_path(e) %>
 <%= link_to 'Delete', e, method: :delete, data: {confirm: 'Are you sure????'} %>
 <% end %>
+<% end %>
+</div>
+</div>
 
 
 <%= form_for [@combo, @comment] do |f| %>

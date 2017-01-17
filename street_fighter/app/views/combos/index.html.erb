@@ -13,10 +13,22 @@
     <ul>
     <% @combos.each do |combo| %>
     <%= div_for combo, :class => "col-sm-3" do %>
-      <p class="title"><%= combo.character %></p>
-      <p><%= combo.damage %></p>
-      <p><%= combo.difficulty %></p>
-      <p><%= combo.command %></p>
+
+
+
+  <p class="title"><%= combo.character %></p>
+  <% if  combo.character == "Ryu" %>
+    <%= image_tag 'http://i.imgur.com/ycyvEaM.png', :class => "style_image" %>
+  <% elsif combo.character == "Ken" %>
+    <%= image_tag 'http://i.imgur.com/mo7Bgq1.jpg', :class => "style_image" %>
+  <% elsif combo.character == "Zangief" %>
+    <%= image_tag 'http://i.imgur.com/Kt1VDwa.png', :class => "style_image" %>
+  <% elsif combo.character == "M. Bison" %>
+    <%= image_tag 'http://i.imgur.com/jRZ3BSx.png', :class => "style_image" %>
+  <% end %>
+      <p>Damage: <%= combo.damage %></p>
+      <p>Difficulty: <%= combo.difficulty %></p>
+      <p>Command: <%= combo.command %></p>
           <button type="button" class="btn btn-info btn-md">
       <p><%= link_to "Click to View Combo", combo_path(combo) %></p>
       </button>
