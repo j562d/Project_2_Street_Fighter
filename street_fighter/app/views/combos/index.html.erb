@@ -1,18 +1,25 @@
 <h1>Combos</h1>
 
+
+
 <div class="container">
 <div class="panel panel-default">
-<div class="panel-heading">
+<div class="panel-heading sorted">
+<%= link_to "Sort by Damage", :sort => 'Damage' %>
+|
+<%= link_to "Sort by Difficulty", :sort => 'Difficulty' %>
 </div>
     <div class="panel-body main">
     <ul>
     <% @combos.each do |combo| %>
-    <%= div_for combo, :class => "col-sm-4" do %>
+    <%= div_for combo, :class => "col-sm-3" do %>
       <p class="title"><%= combo.character %></p>
       <p><%= combo.damage %></p>
       <p><%= combo.difficulty %></p>
       <p><%= combo.command %></p>
+          <button type="button" class="btn btn-info btn-md">
       <p><%= link_to "Click to View Combo", combo_path(combo) %></p>
+      </button>
       <hr>
       <div class="posted">
           Posted by <%= combo.user.name %>

@@ -26,6 +26,8 @@ class CombosController < ApplicationController
       @combos = Combo.where(:character => params[:character])
     elsif params[:user_id]
       @combos = Combo.where(:user_id => params[:user_id])
+    elsif params[:sort]
+      @combos = Combo.order(params[:sort])
     else
     @combos = Combo.all
     end
