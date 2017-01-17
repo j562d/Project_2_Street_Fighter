@@ -10,11 +10,13 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @combo = Combo.find(params[:combo_id])
+
   end
 
   def create
-   @combo = Combo.find(params[:combo_id])
-  @combo.comments.create(comment_params)
+    @combo = Combo.find(params[:combo_id])
+   # @combo.comments.create(comment_params)
+    @comment = @combo.comments.create(comment_params.merge(user_id: current_user.id))
       redirect_to @combo
   end
 

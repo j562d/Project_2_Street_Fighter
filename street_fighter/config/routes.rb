@@ -14,6 +14,9 @@ Rails.application.routes.draw do
       end
     end
 
+  resources :users do
+    resources :comments
+  end
 
   resources :combos do
     put :favorite, on: :member

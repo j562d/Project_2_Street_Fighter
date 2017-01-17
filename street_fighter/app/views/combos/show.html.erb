@@ -39,6 +39,7 @@
 <% @combo.comments.each do |e| %>
 
 <p><%= e.content %></p>
+<p><%= e.user.name %></p>
 <%= link_to "Edit this comment", edit_comment_path(e) %>
 <%= link_to 'Delete', e, method: :delete, data: {confirm: 'Are you sure????'} %>
 <% end %>
@@ -68,3 +69,5 @@
   <%= link_to "unfavorite", favorite_combo_path(@combo, type: "unfavorite"), method: :put %>
 </button>
 <% end %>
+
+
