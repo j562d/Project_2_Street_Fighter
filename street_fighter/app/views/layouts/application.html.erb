@@ -16,10 +16,12 @@
 <nav class="navbar navbar-fixed-top navbar-light bg-faded navbar-brand">
 <div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/combos">Home</a></li>
+      <a href="/combos">Home</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
       <% if current_user %>
-      <li><%= link_to "My Combos", combos_path(:user_id => current_user) %></li>
-      <li><%= link_to "My Favorites", favorites_path(:user_id => current_user)  %></li>
+      <%= link_to "My Combos", combos_path(:user_id => current_user) %>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to "My Favorites", favorites_path(:user_id => current_user)  %>
       <% end %>
     </ul>
     <div class="dropdown">

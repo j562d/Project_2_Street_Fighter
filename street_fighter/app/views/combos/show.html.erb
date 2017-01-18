@@ -62,18 +62,20 @@
 <div class = "postedby">Posted by <%= e.user.name %></div>
 <hr>
 <% if current_user == e.user %>
-<%= link_to "Edit this comment", edit_comment_path(e) %>
-<%= link_to 'Delete', e, method: :delete, data: {confirm: 'Are you sure????'} %>
+<%= link_to "Edit comment", edit_comment_path(e) %>
+&nbsp; |&nbsp;
+<%= link_to 'Delete comment', e, method: :delete, data: {confirm: 'Are you sure????'} %>
 <% end %>
 <% end %>
 </div>
 </div>
 
+<div class="comment_form">
 <% if current_user %>
 <%= link_to "Add Comment", new_combo_comment_path(combo_id: @combo.id) %>
 <%= form_for [@combo, @comment] do |f| %>
-  <%= f.label 'new comment' %>
-  <%= f.text_area :content %><br>
+  <%#= f.label 'new comment' %>
+  <%= f.text_area :content, placeholder: "Type comment here..." %><br>
 
 
 
@@ -81,10 +83,9 @@
   <%= f.submit 'submit new comment' %>
 <% end %>
 <% end %>
-    </div>
 </div>
 </div>
-
+</div>
 
 
 <% if current_user %>
