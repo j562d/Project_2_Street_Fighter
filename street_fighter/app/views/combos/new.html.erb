@@ -11,8 +11,13 @@
 
 <%= form_for @combo, url: combos_path, html: { multipart: true } do |form| %>
   <%= form.label :character %>
-  <%= form.select :character , ['Ken', 'Ryu', 'Zangief', 'M. Bison', 'Chun-Li', 'Dhalsim'] %> <br>
+  <%#= form.select :character , ['Ken', 'Ryu', 'Zangief', 'M. Bison', 'Chun-Li', 'Dhalsim', 'Vega'] %> <br>
   <%#= select_tag "character", options_for_select(@options) %><br>
+  <%#= select_tag :character, (options_for_select(Combo.all.collect { |s| s.character })) %>
+  <%#= form.select(:character, Comment.all.collect {|a| [a.content, a.content]}) -%>
+  <%= form.select(:character, Combo.all.collect {|a| [a.character, a.character]}) -%>
+
+
 
   <%= form.label :difficulty %>
   <%= form.select :difficulty , ['Beginner', 'Intermediate', 'Advanced'] %><br>

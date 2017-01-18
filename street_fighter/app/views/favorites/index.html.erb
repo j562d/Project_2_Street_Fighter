@@ -1,13 +1,12 @@
 <h1>Favorites</h1>
 
 <div class="container">
-<div class="panel panel-default">
 <div class="panel-heading">
 </div>
     <div class="panel-body main">
     <ul>
     <% @favorites.each do |favorite| %>
-    <%= div_for favorite, :class => "col-sm-4" do %>
+    <%= div_for favorite, :class => "col-sm-3" do %>
       <p class="title"><%= favorite.combo.character %></p>
         <% if  favorite.combo.character == "Ryu" %>
     <%= image_tag 'http://i.imgur.com/ycyvEaM.png', :class => "style_image" %>
@@ -21,6 +20,8 @@
     <%= image_tag 'http://i.imgur.com/IxFrHbU.jpg', :class => "style_image" %>
   <% elsif favorite.combo.character == "Dhalsim" %>
     <%= image_tag 'http://i.imgur.com/n63vS1Z.png', :class => "style_image" %>
+  <% elsif favorite.combo.character == "Vega" %>
+    <%= image_tag 'http://i.imgur.com/rIkEq8b.jpg', :class => "style_image" %>
   <% end %>
       <p><%= favorite.combo.damage %></p>
       <p><%= favorite.combo.difficulty %></p>
@@ -35,6 +36,5 @@
       <% end %>
     <% end %>
 </ul>
-</div>
 </div>
 </div>

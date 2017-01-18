@@ -34,7 +34,7 @@ class CombosController < ApplicationController
   end
 
   def show
-  @combo = Combo.find(params[:id])
+  #@combo = Combo.find(params[:id])
   @comment = Comment.new
 
   end
