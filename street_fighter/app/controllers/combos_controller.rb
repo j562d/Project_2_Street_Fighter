@@ -43,6 +43,7 @@ class CombosController < ApplicationController
   def new
     @combo = Combo.new
     @comment = Comment.new(combo_id: params[:combo_id])
+#    @options = ["Ryu", "Ken", "Zangief", "M. Bison", "Chun-Li", "Dhalsim"]
   end
 
   def create

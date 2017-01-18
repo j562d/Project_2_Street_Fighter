@@ -1,11 +1,13 @@
 <h1>SHOW</h1>
 
+
+
 <div class="container show">
 <div class="col-lg-10">
-<div class="panel panel-default">
-<div class="panel-heading">
+
+<div class="panel-heading sorted">
 </div>
-    <div class="panel-body single">
+    <div class="panel-body main">
 <ul>
   <% if  @combo.character == "Ryu" %>
     <%= image_tag 'http://i.imgur.com/ycyvEaM.png', :class => "style_image" %>
@@ -15,12 +17,18 @@
     <%= image_tag 'http://i.imgur.com/Kt1VDwa.png', :class => "style_image" %>
   <% elsif @combo.character == "M. Bison" %>
     <%= image_tag 'http://i.imgur.com/jRZ3BSx.png', :class => "style_image" %>
+  <% elsif @combo.character == "Chun-Li" %>
+    <%= image_tag 'http://i.imgur.com/IxFrHbU.jpg', :class => "style_image" %>
+  <% elsif @combo.character == "Dhalsim" %>
+    <%= image_tag 'http://i.imgur.com/n63vS1Z.png', :class => "style_image" %>
   <% end %>
-  <li><p><%= @combo.character %></p></li>
-  <li><p><%= @combo.damage %></p></li>
-  <li><p><%= @combo.difficulty %></p></li>
-  <li><p><%= @combo.command %></p></li>
-  <%= image_tag(@combo.image.url) %>
+  <p><%= @combo.character %></p>
+  <p>Damage:   <%= @combo.damage %></p>
+  <p>Difficulty:   <%= @combo.difficulty %></p>
+  <br>
+  <p>Command:</p>
+  <p><%= @combo.command %></p>
+  <%= image_tag(@combo.image.url, :class => "style_gif") %>
 
 </ul>
 
@@ -42,15 +50,17 @@
 
 
 
-<%= link_to "Add Comment", new_combo_comment_path(combo_id: @combo.id) %>
 
+
+<div class="card">
+   <div class="card-block">
 
 <% @combo.comments.each do |e| %>
 
-<div class="card" style="width: 20rem;">
-   <div class="card-block">
-    <p class="card-text"><%= e.content %></p>
+
+    <div class="card-text"><%= e.content %></div>
 <div class = "postedby">Posted by <%= e.user.name %></div>
+<hr>
 <% if current_user == e.user %>
 <%= link_to "Edit this comment", edit_comment_path(e) %>
 <%= link_to 'Delete', e, method: :delete, data: {confirm: 'Are you sure????'} %>
@@ -59,18 +69,19 @@
 </div>
 </div>
 
-
+<% if current_user %>
+<%= link_to "Add Comment", new_combo_comment_path(combo_id: @combo.id) %>
 <%= form_for [@combo, @comment] do |f| %>
-  <%= f.label 'leave comment here' %>
+  <%= f.label 'new comment' %>
   <%= f.text_area :content %><br>
 
 
 
 
-  <%= f.submit 'make new comment' %>
+  <%= f.submit 'submit new comment' %>
+<% end %>
 <% end %>
     </div>
-</div>
 </div>
 </div>
 

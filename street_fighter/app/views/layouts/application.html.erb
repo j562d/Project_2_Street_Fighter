@@ -23,7 +23,6 @@
       <% end %>
     </ul>
     <div class="dropdown">
-      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Find Combos by Character
         <span class="caret"></span></a>
       <ul class="dropdown-menu dropdown-menu-center">
@@ -32,8 +31,10 @@
         <li><%= link_to "Ken", combos_path(:character=>"Ken") %></li>
         <li><%= link_to "Zangief", combos_path(:character=>"Zangief") %></li>
         <li><%= link_to "M. Bison", combos_path(:character=>"M. Bison") %></li>
+        <li><%= link_to "Chun-Li", combos_path(:character=>"Chun-Li") %></li>
+        <li><%= link_to "Dhalsim", combos_path(:character=>"Dhalsim") %></li>
       </ul>
-      </li>
+
   </div>
   <ul class="nav navbar-nav navbar-right">
     <% if current_user %>
@@ -50,7 +51,7 @@
 </nav>
 
       <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
+        <div class="alert alert-success alert-<%= key %>"><%= value %></div>
       <% end %>
 
 

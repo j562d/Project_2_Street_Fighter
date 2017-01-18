@@ -20,15 +20,15 @@
 
 
 .navbar-brand {
-  background-image: url('http://steamandrye.com/wp-content/uploads/2016/07/Steam-and-Rye-Navbar-Background.jpg');
+  background-color: rgba(0,0,0, .4)
 }
 
-@media (min-width: 980px) {
+
   body {
     padding-top:60px;
     background-image: url('http://i.imgur.com/uHTNhZF.png');
    }
-}
+
 
 .dropdown {
     position: relative;
@@ -44,19 +44,19 @@
 .title {
   font-size: 35px;
   text-align: center;
-  color: black;
+  color: white;
   font-weight: bold;
 
 }
 .main , .single, {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 20px;
-  color: black;
-  background-color: rgba(0,0,0,.4)
+  color: white;
+  background-color: rgba(0,0,0, .4)
 }
 
-a:visited, {
-  color: black;
+a:visited, .navbar-right {
+  color: pink;
 }
 
 .show {
@@ -79,5 +79,36 @@ a:visited, {
 .style_image {
   height: 100px;
   width: 100px;
-  border: 5px solid;
+  border: 5px solid black;
+}
+
+.style_gif {
+  height: 200px;
+  width: 300px;
+}
+
+label {
+  display: block;
+  width: 3em;
+  margin-right: 1em;
+
+}
+
+
+
+.panel {
+  background-color: rgba(0,0,0, .4)
+}
+
+.panel-heading {
+    background-color: rgba(0,0,0, .6)
+}
+
+.card-block {
+  color: black;
+  margin: 20px 20px 20px 20px;
+}
+
+.card {
+    border-radius: 20px;
 }

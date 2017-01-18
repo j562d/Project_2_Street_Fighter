@@ -1,8 +1,16 @@
 <h1>Edit</h1>
 
+<div class="container show">
+<div class="col-lg-10">
+<div class="panel panel-default">
+<div class="panel-heading">
+</div>
+    <div class="panel-body single">
+<ul>
+
 <%= form_for @combo, url: combo_path, html: { multipart: true } do |form| %>
   <%= form.label :character %>
-  <%= form.select :character , ['Ken', 'Ryu'] %> <br>
+  <%= form.select :character , ['Ken', 'Ryu', 'Zangief', 'M. Bison', 'Chun-Li', 'Dhalsim'] %> <br>
 
   <%= form.label :difficulty %>
   <%= form.select :difficulty , ['Beginner', 'Intermediate', 'Advanced'] %><br>
@@ -15,9 +23,12 @@
 
   <%= form.file_field :image %><br><br>
 
-  <%= form.submit 'Edit this Combo' %>
-
+  <%= form.submit 'Edit this combo' %>
 <% end %>
 
-<%= link_to "Back to all Combos", combos_path %>
-
+</ul>
+</div>
+</div>
+<button><%= link_to "Go back to all Combos", combos_path %></button>
+</div>
+</div>
